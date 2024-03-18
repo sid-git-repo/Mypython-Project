@@ -1,0 +1,13 @@
+# Azure Pipeline Configuration
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: |
+    python -m pip install --upgrade pip
+    pip install -r requirements.txt
+    pytest tests/
+  displayName: 'Run tests'
